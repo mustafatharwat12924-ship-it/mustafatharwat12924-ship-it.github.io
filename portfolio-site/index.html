@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOSTAFA THARWAT — Motion Graphics & Video Editor</title>
+<meta name="description" content="Portfolio of Mostafa Tharwat, motion graphics designer and video editor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --mint:#c8e9d1; --paper:#fdfffe; --teal:#a9d6cf; --lime:#dfe9a3;
+  --skin:#f6c9a8; --hair:#8a5a36; --ink:#17352b; --muted:#47665a;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:71px}
+body{background:var(--mint);color:var(--ink);font:400 18px/1.55 var(--body);overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{padding-inline:var(--gutter);max-width:1500px;margin-inline:auto}
+:focus-visible{outline:3px solid var(--hair);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--mint) 88%,transparent);backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:16px}
+.logo{font:800 22px var(--display);text-decoration:none;letter-spacing:-.02em}
+.nav ul{display:flex;gap:clamp(14px,3vw,36px);list-style:none;padding:0}
+.nav li a{text-decoration:none;font-weight:500;font-size:16px;padding:12px 0;display:block}
+.nav li a:hover{color:var(--hair)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.45fr 1fr;align-items:end;gap:clamp(24px,4vw,64px);padding-block:clamp(24px,4vw,56px) clamp(48px,7vw,96px)}
+.eyebrow{font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(62px,10.6vw,176px)/.88 var(--display);letter-spacing:-.045em;margin:18px 0 28px}
+h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
+h1 .line span{display:inline-block}
+.js h1 .line span{transform:translateY(110%);animation:rise 1s var(--ease) forwards}
+.js h1 .line:nth-child(2) span{animation-delay:.12s}
+@keyframes rise{to{transform:none}}
+.lead{max-width:36ch;font-size:clamp(19px,1.7vw,24px);line-height:1.4}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:99px;font-weight:700;font-size:17px;text-decoration:none;border:2px solid var(--ink);transition:transform .25s var(--ease),background .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.ghost:hover{background:var(--lime)}
+
+.stage{justify-self:center;width:min(100%,430px);perspective:900px}
+.arch{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:564/860;background:var(--teal);box-shadow:0 30px 60px -28px rgba(23,53,43,.55);transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out}
+.js .arch{animation:pop 1s .2s var(--ease) backwards}
+@keyframes pop{from{opacity:0;scale:.9;translate:0 40px}}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;animation:bob 5s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes bob{0%,100%{transform:scale(1.07) translateY(6px) rotate(-.8deg)}50%{transform:scale(1.07) translateY(-8px) rotate(.8deg)}}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--lime);overflow:hidden;padding:16px 0}
+.track{display:flex;width:max-content;animation:slide 26s linear infinite}
+.track span{font:800 clamp(24px,3vw,40px) var(--display);padding-right:48px;white-space:nowrap}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section.block{padding-block:clamp(72px,10vw,140px)}
+h2{font:800 clamp(42px,6.4vw,96px)/.98 var(--display);letter-spacing:-.035em}
+.paper{background:var(--paper)}
+.about .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(28px,6vw,96px)}
+.about p{font-size:clamp(20px,2vw,28px);line-height:1.38}
+.about p+p{margin-top:20px;font-size:18px;color:var(--muted);line-height:1.55}
+
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,64px)}
+.work{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2vw,28px)}
+.card{text-decoration:none;display:block;min-width:0}
+.tile{aspect-ratio:9/16;border-radius:24px;display:grid;place-items:center;overflow:hidden;background:var(--c)}
+.tile b{font:800 clamp(64px,10vw,150px) var(--display);color:var(--ink);opacity:.9;transition:transform .5s var(--ease)}
+.card:hover .tile b{transform:scale(1.14) rotate(-4deg)}
+.tile{position:relative}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.card:hover .tile img{transform:scale(1.06)}
+.play{position:relative;width:72px;height:72px;border-radius:50%;background:var(--lime);display:grid;place-items:center;box-shadow:0 10px 30px rgba(23,53,43,.45);transition:transform .3s var(--ease)}
+.play::after{content:"";margin-left:5px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent var(--ink)}
+.card:hover .play{transform:scale(1.12)}
+
+#player{margin:auto;padding:0;border:0;background:transparent;overflow:visible;max-width:none;max-height:none}
+#player::backdrop{background:rgba(23,53,43,.9)}
+html:has(#player[open]){overflow:hidden}
+.player-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:10px;color:var(--paper)}
+.player-top strong{font-size:18px}
+.player-close{flex:none;width:48px;height:48px;border-radius:50%;border:0;background:var(--lime);color:var(--ink);font:700 24px/1 var(--body);cursor:pointer}
+.frame{width:min(92vw,1100px,calc(82vh*16/9));aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden}
+#player.vertical .frame{width:min(92vw,calc(82vh*9/16));aspect-ratio:9/16}
+.frame{position:relative}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+.work{align-items:start}
+.card.wide{grid-column:span 2}
+.card.wide .tile{aspect-ratio:16/9}
+.card.wide .tile img{transform:scale(1.35)}
+.card.wide:hover .tile img{transform:scale(1.42)}
+
+.foot-link{background:none;border:0;padding:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}
+#upload{margin:auto;border:0;border-radius:24px;background:var(--paper);color:var(--ink);padding:clamp(20px,4vw,32px);width:min(92vw,880px)}
+.upload-columns{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,40px);align-items:start}
+.upload-columns h3{font:800 24px var(--display)}
+#upload::backdrop{background:rgba(23,53,43,.9)}
+html:has(#upload[open]){overflow:hidden}
+.upload-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.upload-top h2{font-size:36px}
+#upload label{display:block;font-weight:700;font-size:16px;margin-top:14px}
+#upload input{display:block;width:100%;min-height:48px;margin-top:6px;padding:0 14px;border:2px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);font:400 16px var(--body)}
+#upload .btn{width:100%;justify-content:center;margin-top:20px;background:var(--ink);color:var(--paper);cursor:pointer}
+#upload .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+#upload-status{min-height:1.5em;margin-top:12px;font-size:16px;font-weight:500}
+.manage{padding-left:clamp(24px,4vw,40px);border-left:2px solid var(--mint)}
+#delete-status{min-height:1.5em;margin-top:12px;font-size:16px;font-weight:500}
+#manage-list{list-style:none;padding:0;margin-top:4px}
+@media (max-width:720px){
+  .upload-columns{grid-template-columns:1fr}
+  .manage{padding-left:0;border-left:0;padding-top:20px;border-top:2px solid var(--mint)}
+}
+#manage-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid var(--mint)}
+#manage-list span{min-width:0;overflow-wrap:anywhere;font-size:16px}
+.delete-btn{flex:none;min-height:44px;padding:0 14px;border:2px solid #a32a1f;border-radius:99px;background:none;color:#a32a1f;font:700 15px var(--body);cursor:pointer}
+.delete-btn:hover{background:#a32a1f;color:#fff}
+.delete-btn:disabled{opacity:.5;cursor:not-allowed}
+
+.meta{display:flex;flex-direction:column;gap:2px;padding-top:12px}
+.meta strong{font-size:19px}
+.meta span{color:var(--muted);font-size:16px}
+
+.services{list-style:none;padding:0;border-top:2px solid var(--ink)}
+.services li{display:grid;grid-template-columns:70px 1fr 1.2fr;gap:20px;align-items:baseline;padding:26px 0;border-bottom:2px solid var(--ink);transition:padding .35s var(--ease)}
+.services li:hover{padding-left:14px}
+.services i{font-style:normal;color:var(--muted);font-weight:700}
+.services h3{font:800 clamp(28px,3.4vw,48px)/1.05 var(--display);letter-spacing:-.02em}
+.services p{color:var(--muted)}
+
+.contact{background:var(--ink);color:var(--paper)}
+.contact h2{font-size:clamp(50px,10vw,160px);max-width:9ch}
+.contact .btn{background:var(--lime);color:var(--ink);border-color:var(--lime);margin-top:36px}
+footer{background:var(--ink);color:var(--teal);font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:24px;border-top:1px solid rgba(255,255,255,.18)}
+
+.js .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .hero .wrap,.about .wrap{grid-template-columns:1fr}
+  h1{font-size:clamp(58px,19vw,140px)}
+  .stage{width:min(82%,380px)}
+  .work{grid-template-columns:repeat(2,1fr)}
+  .services li{grid-template-columns:44px 1fr}
+  .services p{grid-column:2}
+}
+@media (max-width:520px){
+  .nav li:nth-child(1),.nav li:nth-child(3){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal,.js h1 .line span{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">MT.</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Motion Graphics &amp; Video Editor</p>
+        <h1 aria-label="Mostafa Tharwat"><span class="line"><span>MOSTAFA</span></span><span class="line"><span>THARWAT</span></span></h1>
+        <p class="lead">I design visuals and cut videos that people stop scrolling for.</p>
+        <div class="actions">
+          <a class="btn solid" href="#work">See my work</a>
+          <a class="btn ghost" href="https://wa.me/201023657237" target="_blank" rel="noopener">Get in touch</a>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="arch" id="arch"><img src="assets/character.webp" alt="3D cartoon character with curly hair and a beige and mint hoodie, shrugging" width="577" height="1024"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Shorts ✦</span><span>Instagram Reels ✦</span><span>Video Editing ✦</span><span>Motion Graphics ✦</span><span>TikTok ✦</span><span>Long Videos ✦</span>
+      <span>Shorts ✦</span><span>Instagram Reels ✦</span><span>Video Editing ✦</span><span>Motion Graphics ✦</span><span>TikTok ✦</span><span>Long Videos ✦</span>
+      <span>Shorts ✦</span><span>Instagram Reels ✦</span><span>Video Editing ✦</span><span>Motion Graphics ✦</span><span>TikTok ✦</span><span>Long Videos ✦</span>
+      <span>Shorts ✦</span><span>Instagram Reels ✦</span><span>Video Editing ✦</span><span>Motion Graphics ✦</span><span>TikTok ✦</span><span>Long Videos ✦</span>
+    </div>
+  </div>
+
+  <section class="block paper about" id="about">
+    <div class="wrap">
+      <h2 class="reveal">About</h2>
+      <div class="reveal">
+        <p>I'm Mostafa, a designer and editor who turns ideas into clear, memorable visuals and videos.</p>
+        <p>Replace this paragraph with your story: where you're based, how long you've been designing, and the kind of projects you enjoy most.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="head reveal"><h2>Selected work</h2></div>
+      <div class="work">
+        <a class="card reveal" href="#contact" data-youtube="https://www.youtube.com/shorts/DH7D4C60z0c"><div class="tile" style="--c:var(--lime)"><b>01</b></div><div class="meta"><strong>Huberman Lab</strong><span>Video edit</span></div></a>
+        <a class="card reveal" href="#contact" data-youtube="https://www.youtube.com/shorts/Z4DaNz3ZfKI"><div class="tile" style="--c:var(--teal)"><b>02</b></div><div class="meta"><strong>Huberman Lab</strong><span>Video edit</span></div></a>
+        <a class="card reveal" href="#contact" data-youtube="https://www.youtube.com/shorts/CX_9p1aJdiM"><div class="tile" style="--c:var(--skin)"><b>03</b></div><div class="meta"><strong>Photography in a Different Way</strong><span>Video edit</span></div></a>
+        <a class="card reveal" href="#contact" data-youtube="https://www.youtube.com/shorts/4TiifMui870"><div class="tile" style="--c:var(--paper)"><b>04</b></div><div class="meta"><strong>Gift Shop Ad</strong><span>Ad</span></div></a>
+        <a class="card reveal" href="#contact" data-youtube="https://www.youtube.com/shorts/ELiKw_ASjPg"><div class="tile" style="--c:var(--lime)"><b>05</b></div><div class="meta"><strong>Short-form Edit</strong><span>Video edit</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block paper" id="services">
+    <div class="wrap">
+      <div class="head reveal"><h2>What I do</h2></div>
+      <ul class="services">
+        <li class="reveal"><i>01</i><h3>Motion graphics</h3><p>Animated titles, captions and logo reveals.</p></li>
+        <li class="reveal"><i>02</i><h3>Video editing</h3><p>YouTube Shorts, Instagram Reels, TikTok videos and long-form edits.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <h2 class="reveal">Let's make something.</h2>
+      <a class="btn reveal" href="https://wa.me/201023657237" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="y">2026</span> Mostafa Tharwat</span><span><button class="foot-link" id="open-upload" type="button">Upload</button> &nbsp;·&nbsp; <a href="#top">Back to top</a></span></div></footer>
+
+<dialog id="upload" aria-labelledby="upload-heading">
+  <div class="upload-top"><h2 id="upload-heading">Upload</h2><button class="player-close" id="close-upload" type="button" aria-label="Close upload">✕</button></div>
+  <div class="upload-columns">
+  <div>
+  <h3>Add a video</h3>
+  <form id="upload-form">
+    <label>YouTube link<input name="url" type="url" required placeholder="https://www.youtube.com/shorts/..."></label>
+    <label>Title (optional)<input name="title" maxlength="80" placeholder="Uses the YouTube title if empty"></label>
+    <label>Category (optional)<input name="category" maxlength="30" placeholder="Video edit"></label>
+    <label>Passcode<input name="passcode" type="password" required autocomplete="current-password"></label>
+    <button class="btn" type="submit">Add to portfolio</button>
+    <p id="upload-status" role="status"></p>
+  </form>
+  </div>
+  <div class="manage">
+    <h3>Delete a video</h3>
+    <label>Passcode<input id="delete-passcode" type="password" autocomplete="current-password"></label>
+    <p id="delete-status" role="status"></p>
+    <ul id="manage-list"></ul>
+  </div>
+  </div>
+</dialog>
+
+<dialog id="player" aria-label="Video player">
+  <div class="player-top"><strong id="player-title"></strong><button class="player-close" type="button" aria-label="Close video">✕</button></div>
+  <div class="frame" id="player-frame"></div>
+</dialog>
+
+<script>
+// To add a project: paste its YouTube link into data-youtube="" on the card above.
+const player = document.getElementById('player');
+const playerFrame = document.getElementById('player-frame');
+
+function youtubeId(url) {
+  const m = url.match(/(?:youtu\.be\/|[?&]v=|\/(?:shorts|embed|live)\/)([\w-]{11})/);
+  return m ? m[1] : null;
+}
+
+function openPlayer(id, title, vertical) {
+  const f = document.createElement('iframe');
+  f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`;
+  f.title = title;
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  playerFrame.replaceChildren(f);
+  document.getElementById('player-title').textContent = title;
+  player.classList.toggle('vertical', vertical);
+  player.showModal();
+}
+
+function setupCard(card) {
+  const url = card.dataset.youtube.trim();
+  const id = youtubeId(url);
+  if (!id) return;
+  const vertical = url.includes('/shorts/');
+  card.classList.toggle('wide', !vertical);
+  const title = card.querySelector('strong').textContent;
+  const tile = card.querySelector('.tile');
+  const thumb = new Image();
+  thumb.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  thumb.alt = '';
+  thumb.loading = 'lazy';
+  const play = document.createElement('span');
+  play.className = 'play';
+  tile.replaceChildren(thumb, play);
+  card.href = `https://www.youtube.com/watch?v=${id}`;
+  card.setAttribute('aria-label', `Play video: ${title}`);
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    openPlayer(id, title, vertical);
+  });
+}
+document.querySelectorAll('.card').forEach(setupCard);
+
+player.querySelector('.player-close').addEventListener('click', () => player.close());
+player.addEventListener('click', (e) => { if (e.target === player) player.close(); });
+player.addEventListener('close', () => playerFrame.replaceChildren());
+
+// Paste the Google Apps Script Web App URL here (see upload-backend.gs).
+let VIDEOS_API = 'https://script.google.com/macros/s/AKfycbzFg8EQxDCEnTL4-9gmglC5WbNiSck9yFbvAZ_wacXo48hUJbUyjfRYRuRhFLxWQ8Tprg/exec';
+
+// Videos never shown on the site, even if they are in the Google Sheet.
+const REMOVED_VIDEOS = ['V0ALvVPHz-8'];
+
+const work = document.querySelector('.work');
+const seen = new Set([...document.querySelectorAll('.card')].map(c => youtubeId(c.dataset.youtube)).filter(Boolean));
+
+function addVideo(video) {
+  const url = String(video.youtube || '');
+  const id = youtubeId(url);
+  if (!id || seen.has(id) || REMOVED_VIDEOS.includes(id)) return false;
+  seen.add(id);
+  const card = document.createElement('a');
+  card.className = 'card';
+  card.href = '#contact';
+  card.dataset.youtube = url;
+  const tile = document.createElement('div');
+  tile.className = 'tile';
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+  const title = document.createElement('strong');
+  title.textContent = video.title || 'Video';
+  const category = document.createElement('span');
+  category.textContent = video.category || 'Video edit';
+  meta.append(title, category);
+  card.append(tile, meta);
+  work.prepend(card);
+  setupCard(card);
+  return true;
+}
+
+function removeVideo(id) {
+  work.querySelectorAll('.card').forEach(card => {
+    if (youtubeId(card.dataset.youtube) === id) card.remove();
+  });
+  seen.delete(id);
+}
+
+async function loadVideos() {
+  if (!VIDEOS_API) return;
+  try {
+    const res = await fetch(VIDEOS_API);
+    const data = await res.json();
+    (data.hidden || []).forEach(removeVideo);
+    (data.videos || []).forEach(addVideo);
+  } catch (err) {
+    console.warn('Could not load uploaded videos', err);
+  }
+}
+loadVideos();
+
+const upload = document.getElementById('upload');
+const uploadForm = document.getElementById('upload-form');
+const uploadStatus = document.getElementById('upload-status');
+const uploadSubmit = uploadForm.querySelector('[type=submit]');
+const uploadErrors = {
+  passcode: 'Wrong passcode.',
+  locked: 'Too many wrong attempts. Try again in 10 minutes.',
+  link: "That doesn't look like a YouTube video link.",
+  unavailable: "YouTube won't allow this video to play on other sites. Check it isn't Private and that embedding is allowed.",
+  duplicate: 'This video is already on the site.'
+};
+
+const manageList = document.getElementById('manage-list');
+const deletePasscode = document.getElementById('delete-passcode');
+const deleteStatus = document.getElementById('delete-status');
+
+function renderManage() {
+  manageList.replaceChildren(...[...work.querySelectorAll('.card')].map(card => {
+    const id = youtubeId(card.dataset.youtube);
+    const title = card.querySelector('strong').textContent;
+    const row = document.createElement('li');
+    const name = document.createElement('span');
+    name.textContent = title;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'delete-btn';
+    button.textContent = 'Delete';
+    button.setAttribute('aria-label', `Delete ${title}`);
+    button.addEventListener('click', () => deleteVideo(id, title, button));
+    row.append(name, button);
+    return row;
+  }));
+}
+
+async function deleteVideo(id, title, button) {
+  const passcode = deletePasscode.value;
+  if (!passcode) {
+    deleteStatus.textContent = 'Enter your passcode first.';
+    deletePasscode.focus();
+    return;
+  }
+  // Two clicks instead of confirm(), which some browsers block silently.
+  const disarm = () => {
+    clearTimeout(button.armTimer);
+    delete button.dataset.armed;
+    button.textContent = 'Delete';
+    button.setAttribute('aria-label', `Delete ${title}`);
+  };
+  if (!button.dataset.armed) {
+    button.dataset.armed = '1';
+    button.textContent = 'Sure?';
+    button.setAttribute('aria-label', `Confirm delete ${title}`);
+    deleteStatus.textContent = `Click "Sure?" to delete: ${title}`;
+    button.armTimer = setTimeout(disarm, 5000);
+    return;
+  }
+  disarm();
+  button.disabled = true;
+  deleteStatus.textContent = 'Deleting…';
+  try {
+    const res = await fetch(VIDEOS_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'delete', id, passcode })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      removeVideo(id);
+      renderManage();
+      deleteStatus.textContent = 'Deleted. It is no longer on the site.';
+      return;
+    }
+    // The UI always sends a valid id, so "link" means the old script is still deployed.
+    deleteStatus.textContent = data.error === 'link'
+      ? 'The Google script is still the old version. Publish a New version in Apps Script.'
+      : uploadErrors[data.error] || 'Something went wrong. Try again.';
+  } catch (err) {
+    deleteStatus.textContent = 'Could not reach the server. Check your connection and try again.';
+  }
+  button.disabled = false;
+}
+
+document.getElementById('open-upload').addEventListener('click', () => {
+  renderManage();
+  deleteStatus.textContent = '';
+  uploadSubmit.disabled = !VIDEOS_API;
+  uploadStatus.textContent = VIDEOS_API ? '' : 'Upload is not connected yet. Finish the Google Sheet setup first.';
+  upload.showModal();
+});
+document.getElementById('close-upload').addEventListener('click', () => upload.close());
+
+uploadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const fields = Object.fromEntries(new FormData(uploadForm));
+  const id = youtubeId(fields.url);
+  if (!id) { uploadStatus.textContent = uploadErrors.link; return; }
+  if (seen.has(id)) { uploadStatus.textContent = uploadErrors.duplicate; return; }
+  uploadSubmit.disabled = true;
+  uploadStatus.textContent = 'Adding…';
+  try {
+    // text/plain keeps this a simple request, which Apps Script requires.
+    const res = await fetch(VIDEOS_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(fields)
+    });
+    const data = await res.json();
+    if (data.ok) {
+      addVideo(data.video);
+      renderManage();
+      uploadForm.elements.url.value = '';
+      uploadForm.elements.title.value = '';
+      uploadForm.elements.category.value = '';
+      uploadStatus.textContent = 'Added. It is now live on the site.';
+    } else {
+      uploadStatus.textContent = uploadErrors[data.error] || 'Something went wrong. Try again.';
+    }
+  } catch (err) {
+    uploadStatus.textContent = 'Could not reach the server. Check your connection and try again.';
+  }
+  uploadSubmit.disabled = false;
+});
+
+document.getElementById('y').textContent = new Date().getFullYear();
+const io = new IntersectionObserver((es) => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const arch = document.getElementById('arch');
+if (matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches) {
+  addEventListener('pointermove', (e) => {
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    arch.style.setProperty('--ry', (x * 12).toFixed(2) + 'deg');
+    arch.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+  }, { passive: true });
+}
+</script>
+</body>
+</html>
